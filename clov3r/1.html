@@ -116,6 +116,15 @@ hr {
     background-color: #3eb;
     border: 4px outset #2da;
 }
+.comment {
+    margin: 16px 0px;
+}
+
+.comment hr {
+    border: 1px solid;
+    width: 240px;
+    margin-left: 0px;
+}
 </style>
 </head>
 <body>
@@ -233,7 +242,7 @@ hr {
     </p>
     <hr>
     <h1>Comments (0)</h1>
-    <p>No comments yet. <a href="#"  onclick="nuh_uh()">Be the first!</a></p>
+    <p>No comments yet. <a href="#"  onclick="comment_nuh_uh()">Be the first!</a></p>
     <hr>
     <center>nginx/1.24.0 (Ubuntu)</center>
     </div>
@@ -268,6 +277,9 @@ function nuh_uh() {
     alert("most of these links aren't real sorry. this isn't a real blog");
 }
 
+function comment_nuh_uh() {
+    alert("this isn't a real blog so there's no comment mechanism. but if you want your character to leave a comment, message me on discord and i can add it manually");
+}
 
 function toggle_screen_black() {
     const screen = document.getElementsByClassName("screen").item(0);
