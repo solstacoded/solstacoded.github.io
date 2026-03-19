@@ -9,21 +9,26 @@
 <meta property="og:image:type" content="image/jpeg">
 <meta property="og:image:width" content="432" />
 <meta property="og:image:height" content="80" />
-<meta property="og:site_name" content="Clov3rComet's blog" />
+<meta property="og:site_name" content="Clov3rComet" />
 
 <meta property="article:published_time" content="0001-03-19" />
+<meta property="article:modified_time" content="0001-03-19" />
+<meta property="og:updated_time" content="0001-03-19" />
 <meta property="theme_color" content="#3eb" />
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:creator" content="Clov3rComet">
-<meta name="twitter:title" content="*taps mic* is this thing on?" />
-<meta name="twitter:description" content="day, nth Carpeon, 1" />
+<meta name="twitter:title" content="*taps mic* is this thing on? | Clov3rComet's Blog" />
+<meta name="twitter:description" content="hiya!! this world doesn't have tumblr as far as i can tell but i figured out i can write my thoughts out and it manifests physically??? as a blog post??? <nobr>(´･ω･`)</nobr>? idk how it works but i guess i get to have a blog now! ..." />
 <meta name="twitter:image" content="https://solstacoded.github.io/clov3r/img/badgelogo.jpg" />
 <style>
 body {
     background-color: #113;
     margin-left: 0px;
     margin-right: 0px;
+}
+a {
+    color: inherit;
 }
 .container {
     background-color: #3eb;
@@ -52,8 +57,16 @@ body {
     padding: 12px;
     text-align: justify;
 }
+.screen_black {
+    background-color: #fff;
+    border: 4px solid;
+    border-color: #222 #333 #333 #222;
+    padding: 12px;
+    text-align: justify;
+    color: #000;
+}
 hr {
-    color: #fff;
+    color: inherit;
     border: 1px solid;
 }
 .badge_groove_outer {
@@ -91,6 +104,9 @@ hr {
 .av_out img {
     margin-right: 80px;
 }
+.screen_black img {
+    background-color: #000;
+}
 .powerbutton {
     width: 60px;
     height: 48px;
@@ -113,12 +129,13 @@ hr {
     <a href="#" onclick="nuh_uh()">home</a> -
     <a href="#" onclick="nuh_uh()">blog posts</a> -
     <a href="#" onclick="nuh_uh()">about me</a> -
-    <a href="#" onclick="nuh_uh()">contact</a>
+    <a href="#" onclick="nuh_uh()">contact</a> -
+    <a href="#" onclick="toggle_screen_black()">toggle readability</a>
     
     <hr>
     
     <h1>*taps mic* is this thing on?</h1>
-    <h3>day, nth Carpeon, 1</h3>
+    <h3>Solradic, 19th Carpeon, 1</h3>
     <hr>
     
     <p>
@@ -231,7 +248,7 @@ hr {
         <img src="img/badgelogo.jpg">
       </td>
       <td class="badge_side">
-          <div class="powerbutton"></div>
+          <div class="powerbutton" onclick="toggle_screen_black()"></div>
       </td>
     </tr>
   </table>
@@ -247,7 +264,21 @@ hr {
 <script type="text/javascript">
 
 function nuh_uh() {
-    alert("none of these links are real sorry. this isn't a real blog");
+    alert("most of these links aren't real sorry. this isn't a real blog");
+}
+
+
+function toggle_screen_black() {
+    const screen = document.getElementsByClassName("screen").item(0);
+    if (screen) {
+        screen.classList.remove("screen");
+        screen.classList.add("screen_black");
+    }
+    else {
+        const screen_black = document.getElementsByClassName("screen_black").item(0);
+        screen_black.classList.remove("screen_black");
+        screen_black.classList.add("screen");
+    }
 }
 
 </script>
