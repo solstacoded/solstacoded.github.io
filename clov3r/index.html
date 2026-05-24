@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+    background-color: #113;
+    background-image: url("img/stars.gif");
+    margin-left: 0px;
+    margin-right: 0px;
+}
+a {
+    color: inherit;
+}
+.container {
+    background-color: #3eb;
+    background-image: url("img/turquoiseplastic.jpg");
+    color: #fff;
+    padding: 20px 0px;
+    width: 1000px;
+    margin: 0px auto;
+}
+.screen_outer_border {
+    background-color: #444;
+    background-image: url("img/greyplastic.jpg");
+    padding: 20px;
+    margin: 0px 20px 0px;
+}
+.screen_inner_border {
+    border: 16px solid;
+    border-color: #222 #333 #333 #222;
+    padding: 20px;
+}
+.screen {
+    background-color: #a0f;
+    background-image: url('img/screensmall.jpg');
+    border: 4px solid;
+    border-color: #222 #333 #333 #222;
+    padding: 12px;
+    text-align: justify;
+}
+.screen_black {
+    background-color: #fff;
+    border: 4px solid;
+    border-color: #222 #333 #333 #222;
+    padding: 12px;
+    text-align: justify;
+    color: #000;
+}
+hr {
+    color: inherit;
+    border: 1px solid;
+}
+.badge_groove_outer {
+    margin-top: 32px;
+    background-color: #1c9;
+}
+.badge_groove_inner {
+    margin-top: 32px;
+    background-color: #1c9;
+    margin: 0px auto 0px;
+}
+.badge {
+    width: 480px;
+    background-image: url("img/greyplastic.jpg");
+    border-left: 6px solid #3eb;
+    border-right: 6px solid #3eb;
+    border-top: 0px;
+    border-bottom: 0px;
+    text-align: center;
+}
+.badge_side {
+    width: 234px;
+    margin: 0px auto 0px;
+    border: 0px;
+}
+.av_groove {
+    color: #1c9;
+    border: 2px solid;
+    margin: 32px auto 0px;
+}
+.av_out {
+    text-align: right;
+    margin: 0px auto;
+}
+.av_out img {
+    margin-right: 80px;
+}
+.screen_black img {
+    background-color: #000;
+}
+.powerbutton {
+    width: 60px;
+    height: 48px;
+    margin-right: 30px;
+    margin-left: auto;
+    background-color: #3eb;
+    border: 4px outset #2da;
+}
+.comment {
+    margin: 16px 0px;
+}
+
+.comment hr {
+    border: 1px solid;
+    width: 240px;
+    margin-left: 0px;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<div class="screen_outer_border">
+  <div class="screen_inner_border">
+    <div class="screen">
+    <p><img src="img/bloglogo.png"></p>
+    
+    <a href="index.html">home</a> -
+    <a href="blog.html">blog posts</a> -
+    <a href="#" onclick="nuh_uh()">about me</a> -
+    <a href="#" onclick="nuh_uh()">contact</a> -
+    <a href="#" onclick="toggle_screen_black()">toggle readability</a>
+    
+    <hr>
+    
+    <h1>welcome to my website!</h1>
+    
+    <p>
+    hiya!! i'm clov3rcomet, warlock(?) and proud member of the explorer's guild of sorrowstar <nobr>~(￣▽￣)~*</nobr>!!
+    </p>
+    <p>
+    on here you'll find my blog and anything else i decide to post here <nobr>( •̀ ω •́ )✧</nobr>
+    </p>
+    
+    <hr>
+    <center>nginx/1.24.0 (Ubuntu)</center>
+    </div>
+  </div>
+</div>
+<div class="badge_groove_outer">
+  <table class="badge_groove_inner" cellspacing="0">
+    <tr>
+      <td class="badge_side">
+      
+      </td>
+      <td class="badge">
+        <img src="img/badgelogo.jpg">
+      </td>
+      <td class="badge_side">
+          <div class="powerbutton" onclick="toggle_screen_black()"></div>
+      </td>
+    </tr>
+  </table>
+</div>
+<hr class="av_groove">
+<div class="av_out">
+    <img src="img/avout.png">
+</div>
+
+</div>
+
+
+<script type="text/javascript">
+
+function nuh_uh() {
+    alert("most of these links aren't real sorry. this isn't a real blog");
+}
+
+function comment_nuh_uh() {
+    alert("this isn't a real blog so there's no comment mechanism. but if you want your character to leave a comment, message me on discord and i can add it manually");
+}
+
+function toggle_screen_black() {
+    const screen = document.getElementsByClassName("screen").item(0);
+    if (screen) {
+        screen.classList.remove("screen");
+        screen.classList.add("screen_black");
+    }
+    else {
+        const screen_black = document.getElementsByClassName("screen_black").item(0);
+        screen_black.classList.remove("screen_black");
+        screen_black.classList.add("screen");
+    }
+}
+
+</script>
+
+
+</body>
+</html>
