@@ -58,13 +58,21 @@ a {
     padding: 12px;
     text-align: justify;
 }
-.screen_black {
+.screen_light_mode {
     background-color: #fff;
     border: 4px solid;
     border-color: #222 #333 #333 #222;
     padding: 12px;
     text-align: justify;
     color: #000;
+}
+.screen_dark_mode {
+    background-color: #425;
+    border: 4px solid;
+    border-color: #222 #333 #333 #222;
+    padding: 12px;
+    text-align: justify;
+    color: #fff;
 }
 hr {
     color: inherit;
@@ -105,7 +113,7 @@ hr {
 .av_out img {
     margin-right: 80px;
 }
-.screen_black img {
+.screen_light_mode img {
     background-color: #000;
 }
 .powerbutton {
@@ -139,7 +147,7 @@ hr {
     <a href="blog.html">blog posts</a> -
     <a href="#" onclick="nuh_uh()">about me</a> -
     <a href="#" onclick="nuh_uh()">contact</a> -
-    <a href="#" onclick="toggle_screen_black()">toggle readability</a>
+    <a href="#" onclick="toggle_screen_mode()">toggle readability</a>
     <hr>
     <h1>blog post</h1>
     <h3>15:28, Solaxis, 2nd Archon, 1</h3>
@@ -193,7 +201,7 @@ hr {
         <img src="img/badgelogo.jpg">
       </td>
       <td class="badge_side">
-          <div class="powerbutton" onclick="toggle_screen_black()"></div>
+          <div class="powerbutton" onclick="toggle_screen_mode()"></div>
       </td>
     </tr>
   </table>
@@ -214,16 +222,21 @@ function comment_nuh_uh() {
     alert("this isn't a real blog so there's no comment mechanism. but if you want your character to leave a comment, message me on discord and i can add it manually");
 }
 
-function toggle_screen_black() {
+function toggle_screen_mode() {
     const screen = document.getElementsByClassName("screen").item(0);
+    const screen_light_mode = document.getElementsByClassName("screen_light_mode").item(0);
+    const screen_dark_mode = document.getElementsByClassName("screen_dark_mode").item(0);
     if (screen) {
         screen.classList.remove("screen");
-        screen.classList.add("screen_black");
+        screen.classList.add("screen_light_mode");
     }
-    else {
-        const screen_black = document.getElementsByClassName("screen_black").item(0);
-        screen_black.classList.remove("screen_black");
-        screen_black.classList.add("screen");
+    else if (screen_light_mode) {
+        screen_light_mode.classList.remove("screen_light_mode");
+        screen_light_mode.classList.add("screen_dark_mode");
+    }
+    else if (screen_dark_mode) {
+        screen_dark_mode.classList.remove("screen_dark_mode");
+        screen_dark_mode.classList.add("screen");
     }
 }
 </script>
