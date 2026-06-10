@@ -128,6 +128,28 @@ hr {
     width: 240px;
     margin-left: 0px;
 }
+.ooc {
+    font-size: 0.8em;
+    padding-bottom: 1em;
+}
+.screen .ooc {
+    color: #ddf;
+}
+.screen_light_mode .ooc {
+    color: #444;
+}
+.screen_dark_mode .ooc {
+    color: #ddf;
+}
+.screen .readable {
+    background-color: #425;
+}
+.readable {
+    padding: 2px;
+}
+
+
+.ooc_shown {
 </style>
 </head>
 <body>
@@ -140,11 +162,20 @@ hr {
     
     <a href="index.html">home</a> -
     <a href="blog.html">blog posts</a> -
-    <a href="#" onclick="nuh_uh()">about me</a> -
-    <a href="#" onclick="nuh_uh()">contact</a> -
-    <a href="#" onclick="toggle_screen_mode()">toggle readability</a>
+    <a href="#" onclick="nuh_uh();return false;">about me</a> -
+    <a href="#" onclick="nuh_uh();return false;">contact</a> -
+    <a class="readable" href="#" onclick="toggle_screen_mode();return false;">toggle readability</a>
     <hr>
     <h1>Blog Posts</h1>
+    
+    <div class="comment">
+      <hr>
+      <h2><a href="4.html">okay fine</a></h2>
+      <h4>23:06, Solture, 10th Archon, 1</h4>
+      <p>
+      according to genericrougeman my previous post (<a href="3.html">https://clov3rcomet.sorrowstar/3.html</a>) wasn't "good enough" so i guess i'll make an actual post <nobr>(* ￣︿￣)</nobr> ...
+      </p>
+    </div>
     
     <div class="comment">
       <hr>
@@ -224,6 +255,23 @@ function toggle_screen_mode() {
     else if (screen_dark_mode) {
         screen_dark_mode.classList.remove("screen_dark_mode");
         screen_dark_mode.classList.add("screen");
+    }
+}
+
+// setup ooc notes
+const ooc_notes = document.getElementsByClassName("ooc");
+for (const note of ooc_notes) {
+    note.innerHTML = "(<a href='#' onclick='toggle_ooc(this);return false;'>out-of-character note</a><span>: " + note.innerHTML + "</span>)";
+    note.children[1].style.display = "none";
+}
+
+function toggle_ooc(e) {
+    const second_born = e.parentNode.children[1];
+    if (second_born.style.display == "none") {
+        second_born.style.display = ""
+    }
+    else {
+        second_born.style.display = "none"
     }
 }
 </script>
