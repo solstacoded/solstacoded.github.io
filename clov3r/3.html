@@ -58,20 +58,14 @@ a {
     padding: 12px;
     text-align: justify;
 }
-.screen_light_mode {
+.light_mode .screen {
     background-color: #fff;
-    border: 4px solid;
-    border-color: #222 #333 #333 #222;
-    padding: 12px;
-    text-align: justify;
+    background-image: none;
     color: #000;
 }
-.screen_dark_mode {
+.dark_mode .screen {
     background-color: #425;
-    border: 4px solid;
-    border-color: #222 #333 #333 #222;
-    padding: 12px;
-    text-align: justify;
+    background-image: none;
     color: #fff;
 }
 hr {
@@ -113,7 +107,7 @@ hr {
 .av_out img {
     margin-right: 80px;
 }
-.screen_light_mode img {
+.light_mode .screen img {
     background-color: #000;
 }
 .powerbutton {
@@ -136,28 +130,28 @@ hr {
 .ooc {
     font-size: 0.8em;
     padding-bottom: 1em;
-}
-.screen .ooc {
     color: #ddf;
 }
-.screen_light_mode .ooc {
+.light_mode .ooc {
     color: #444;
 }
-.screen_dark_mode .ooc {
-    color: #ddf;
-}
-.screen .readable {
-    background-color: #425;
-}
+
 .readable {
+    background-color: #425;
     padding: 3px;
+}
+.light_mode .readable {
+    background-color: transparent;
+}
+.dark_mode .readable {
+    background-color: transparent;
 }
 
 
 .ooc_shown {
 </style>
 </head>
-<body>
+<body class="the_penis">
 <div class="container">
 
 <div class="screen_outer_border">
@@ -169,7 +163,7 @@ hr {
     <a href="blog.html">blog posts</a> -
     <a href="#" onclick="nuh_uh();return false;">about me</a> -
     <a href="#" onclick="nuh_uh();return false;">contact</a> -
-    <a class="readable" href="#" onclick="toggle_screen_mode();return false;">toggle readability</a>
+    <a class="readable" href="#" onclick="cycle_color_mode();return false;">toggle readability</a>
     <hr>
     <h1>blog post</h1>
     <h3>15:28, Solaxis, 2nd Archon, 1</h3>
@@ -235,7 +229,7 @@ hr {
         <img src="img/badgelogo.jpg">
       </td>
       <td class="badge_side">
-          <div class="powerbutton" onclick="toggle_screen_mode()"></div>
+          <div class="powerbutton" onclick="cycle_color_mode()"></div>
       </td>
     </tr>
   </table>
@@ -256,24 +250,6 @@ function comment_nuh_uh() {
     alert("this isn't a real blog so there's no comment mechanism. but if you want your character to leave a comment, message me on discord and i can add it manually");
 }
 
-function toggle_screen_mode() {
-    const screen = document.getElementsByClassName("screen").item(0);
-    const screen_light_mode = document.getElementsByClassName("screen_light_mode").item(0);
-    const screen_dark_mode = document.getElementsByClassName("screen_dark_mode").item(0);
-    if (screen) {
-        screen.classList.remove("screen");
-        screen.classList.add("screen_light_mode");
-    }
-    else if (screen_light_mode) {
-        screen_light_mode.classList.remove("screen_light_mode");
-        screen_light_mode.classList.add("screen_dark_mode");
-    }
-    else if (screen_dark_mode) {
-        screen_dark_mode.classList.remove("screen_dark_mode");
-        screen_dark_mode.classList.add("screen");
-    }
-}
-
 // setup ooc notes
 const ooc_notes = document.getElementsByClassName("ooc");
 for (const note of ooc_notes) {
@@ -284,12 +260,39 @@ for (const note of ooc_notes) {
 function toggle_ooc(e) {
     const second_born = e.parentNode.children[1];
     if (second_born.style.display == "none") {
-        second_born.style.display = ""
+        second_born.style.display = "";
     }
     else {
-        second_born.style.display = "none"
+        second_born.style.display = "none";
     }
 }
+
+const COLOR_MODES = [
+    "canon",
+    "light_mode",
+    "dark_mode",
+];
+var current_color_mode = localStorage.getItem("clov3r_color_mode") || COLOR_MODES[0];
+
+function update_color_mode() {
+    const body = document.getElementsByTagName("body")[0];
+    for (const mode of COLOR_MODES) {
+        body.classList.remove(mode);
+    }
+    body.classList.add(current_color_mode);
+    
+    localStorage.setItem("clov3r_color_mode", current_color_mode)
+}
+
+function cycle_color_mode() {
+    const current_idx = COLOR_MODES.findIndex((e) => (e == current_color_mode));
+    current_color_mode = COLOR_MODES[(current_idx+1) % COLOR_MODES.length];
+    update_color_mode();
+}
+
+update_color_mode();
+
+
 </script>
 </body>
 </html>
